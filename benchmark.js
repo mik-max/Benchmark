@@ -226,81 +226,82 @@ function forEachBenchMark () {
 }
 
 function activeforLoopBenchMark (){
-     
-     for(var index = 1; index <=  20; index++){
-          const startingTime = new Date();
-          for ( let i = 0; i < arr.length; i++) { 
-               console.log("i is now " + arr[i] + " at index " + i);
-             }
-          const endingTime = new Date();
-          console.log("Start time is :" + startingTime);
-          console.log("End time is :" + endingTime);
-          console.log('This code took ' + (endingTime - startingTime) + ' milliseconds.');
-          let result = endingTime - startingTime;
-          let output = document.getElementById('DynamicforLoopOutput');
-          if( index === 1){
-               output.innerHTML += index + "st"+ " Itration result is now " + result + ' milliseconds.' + "<br>";
-          }else if( index === 2){
-               output.innerHTML += index + "nd"+ " Itration result is now " + result + ' milliseconds.' + "<br>";
-          }else if( index === 3){
-               output.innerHTML += index + "rd"+ " Itration result is now " + result + ' milliseconds.' + "<br>";
-          }else{
-               output.innerHTML += index + "th"+ " Itration result is now " + result + ' milliseconds.' + "<br>";
+     let runTimeArray = [];
+     let input = document.getElementById('forLoopInput').value
+     if(input < 1){
+          alert('Value is below minimum or empty.');
+     }else{
+          for(var index = 1; index <= input; index++){
+               const startingTime = new Date();
+               for ( let i = 0; i < arr.length; i++) { 
+                    console.log("i is now " + arr[i] + " at index " + i);
+                  }
+               const endingTime = new Date();
+               console.log("Start time is :" + startingTime);
+               console.log("End time is :" + endingTime);
+               console.log('This code took ' + (endingTime - startingTime) + ' milliseconds.');
+               let runTime = endingTime - startingTime;
+               runTimeArray.push(runTime);
+               let table = document.getElementById('forLoopTableBody');
+               let row = `<tr>`+ 
+                              `<td>`+ "Itration " + index +`</td>`+
+                              `<td>`+ runTime + " milliseconds" +`</td>`
+                         +'</tr>'
+               table.innerHTML += row;       
           }
-          
-          
-
-     }
+          const reducer =(currentValue, nextValue) => currentValue + nextValue;
      
+          let meanValue = runTimeArray.reduce(reducer, 0) / input;
+          document.getElementById('forLoopMean').innerText = "Mean: " + meanValue;
+          let leastValue = Math.min(...runTimeArray);
+          document.getElementById('forLoopLeast').innerText = "least: " + leastValue;
+          let largestValue = Math.max(...runTimeArray);
+          document.getElementById('forLoopLargest').innerText = "Largest: " +  largestValue;
+     } 
 }
 
 function activeforEachBenchMark () {
-     for(var index = 1; index <= 20; index++){
-          const startingTime = new Date();
-          arr.forEach((element, index) => {
-               console.log("element is now " + element + " at index " + index);
-          });
-          const endingTime = new Date();
-          console.log("Start time is :" + startingTime);
-          console.log("End time is :" + endingTime);
-          console.log('This code took ' + (endingTime - startingTime) + ' milliseconds.');
-          let result = endingTime - startingTime;
-          let output = document.getElementById('DynamicforEachOutput');
-          if( index === 1){
-               output.innerHTML += index + "st"+ " Itration result is now " + result + ' milliseconds.' + "<br>";
-          }else if( index === 2){
-               output.innerHTML += index + "nd"+ " Itration result is now " + result + ' milliseconds.' + "<br>";
-          }else if( index === 3){
-               output.innerHTML += index + "rd"+ " Itration result is now " + result + ' milliseconds.' + "<br>";
-          }else{
-               output.innerHTML += index + "th"+ " Itration result is now " + result + ' milliseconds.' + "<br>";
+     let runTimeArray = [];
+     let input = document.getElementById('forEachInput').value
+     if(input < 1){
+          alert('Value is below minimum or empty.')
+     }else{
+          for(var index = 1; index <= input; index++){
+               const startingTime = new Date();
+               arr.forEach((element, index) => {
+                    console.log("element is now " + element + " at index " + index);
+               });
+               const endingTime = new Date();
+               
+               console.log("Start time is :" + startingTime);
+               console.log("End time is :" + endingTime);
+               console.log('This code took ' + (endingTime - startingTime) + ' milliseconds.');
+               let runTime = endingTime - startingTime;
+               runTimeArray.push(runTime);
+               console.log(runTimeArray);
+               let table = document.getElementById('forEachTableBody');
+               let row = `<tr>`+ 
+                              `<td>`+ "Itration " + index +`</td>`+
+                              `<td>`+ runTime + " milliseconds" +`</td>`
+                         +'</tr>'
+               table.innerHTML += row;           
           }
+          const reducer =(currentValue, nextValue) => currentValue + nextValue;
+
+          let meanValue = runTimeArray.reduce(reducer, 0) / input;
+          document.getElementById('forEachMean').innerText = "Mean: " + meanValue;
+          let leastValue = Math.min(...runTimeArray);
+          document.getElementById('forEachLeast').innerText = "least: " + leastValue;
+          let largestValue = Math.max(...runTimeArray);
+          document.getElementById('forEachLargest').innerText = "Largest: " +  largestValue;
      }
+     
 
-}
-
-function documentFrag(){
-
-     let list = document.getElementById('list');
-     /* let arr = ["Rice", "yam", "Eggs", "Fish", "Plantain", "Tomatoes", "Garri", "Beans",
-] */
-let count = 1;
-     const fragment = document.createDocumentFragment();
-          const startingTime = new Date();
-          for(let i = 0; i < arr.length; i++){
-               let item = document.createElement('li');
-               console.log(arr[i]);
-               item.innerText = arr[i];
-               count = count + 1;
-               fragment.appendChild(item);
-          }
-          const endingTime = new Date();
-          console.log('This code took ' + (endingTime - startingTime) + ' milliseconds.');
-          list.appendChild(fragment);
-          
- }
     
+}
  
+
+
 
 
 

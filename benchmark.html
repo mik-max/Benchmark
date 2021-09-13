@@ -13,62 +13,66 @@
      <title>Benchmark</title>
 </head>
 <body>
-    
-     <div class="totalContainer container-fluid mt-2">
-          <div class="row">
-               <div class="col-md-5 p-2" id="dynamicForLoopDiv">
-                    <p>Kindly input your number of iterations</p>
-                    <input type="number" class="form-control mt-1" id="forLoopInput">
-                    <button class="btn btn-primary mt-4 mb-4 verify-btn" onclick="activeforLoopBenchMark()">Dynamic For Loop Benchmark</button>
-                    <table class="table table-striped p-4">
-                         <thead class="thead-dark text-white">
-                              <tr>
-                                   <th>Itrations</th>
-                                   <th>Run time (ms)</th>
-                              </tr>
-                         </thead>
-                         <tbody id="forLoopTableBody">
-                              
-                         </tbody>
-                    </table>
-                    <span class="col-md-4" id="forLoopLargest"></span>
-                    <span class="col-md-4" id="forLoopLeast"></span>
-                    <span class="col-md-4" id="forLoopMean"></span>
+     
+     <div class="totalContainer ">
+          <div class="container-fluid p-3 bg-white">
+               <h4 class=" text-center header-text">forLoop and forEach Performance Test</h4>
+               <div class="row">
+                    <div class="col-md-5 p-2" id="dynamicForLoopDiv">
+                         <p>Kindly input your number of iterations</p>
+                         <input type="number" class="form-control mt-1" id="forLoopInput">
+                         <button class="btn btn-primary mt-4 mb-4 verify-btn" onclick="activeforLoopBenchMark()">Dynamic For Loop Benchmark</button>
+                         <table class="table table-striped p-4">
+                              <thead class="thead-dark text-white">
+                                   <tr>
+                                        <th>Itrations</th>
+                                        <th>Run time (ms)</th>
+                                   </tr>
+                              </thead>
+                              <tbody id="forLoopTableBody">
+                                   
+                              </tbody>
+                         </table>
+                         <span class="col-md-4" id="forLoopLargest"></span>
+                         <span class="col-md-4" id="forLoopLeast"></span>
+                         <span class="col-md-4" id="forLoopMean"></span>
+                    </div>
+                    <div class="col-md-2"></div><!--For space-->
+                    <div class="col-md-5 p-2" id="dynamicForEachDiv">
+                         <p>Kindly input your number of iterations</p>
+                         <input type="number" class="form-control mt-1" id="forEachInput">
+                         <button class="btn btn-primary mt-4 mb-4 verify-btn" onclick="activeforEachBenchMark()">Dynamic ForEach Benchmark</button>
+                         <table class="table  table-striped ">
+                              <thead class="thead-dark text-white">
+                                   <tr>
+                                        <th>Itrations</th>
+                                        <th>Run time (ms)</th>
+                                   </tr>
+                              </thead>
+                              <tbody id="forEachTableBody">
+                                   
+                              </tbody>
+                         </table>
+                         <span class="col-md-4" id="forEachLargest"></span>
+                         <span class="col-md-4" id="forEachLeast"></span>
+                         <span class="col-md-4" id="forEachMean"></span>
+                    </div>
+     
                </div>
-               <div class="col-md-2"></div><!--For space-->
-               <div class="col-md-5 p-2" id="dynamicForEachDiv">
-                    <p>Kindly input your number of iterations</p>
-                    <input type="number" class="form-control mt-1" id="forEachInput">
-                    <button class="btn btn-primary mt-4 mb-4 verify-btn" onclick="activeforEachBenchMark()">Dynamic ForEach Benchmark</button>
-                    <table class="table  table-striped ">
-                         <thead class="thead-dark text-white">
-                              <tr>
-                                   <th>Itrations</th>
-                                   <th>Run time (ms)</th>
-                              </tr>
-                         </thead>
-                         <tbody id="forEachTableBody">
-                              
-                         </tbody>
-                    </table>
-                    <span class="col-md-4" id="forEachLargest"></span>
-                    <span class="col-md-4" id="forEachLeast"></span>
-                    <span class="col-md-4" id="forEachMean"></span>
+               <hr>
+               <div class="row">
+                    <div class="col-md-5">
+                         <button class="btn btn-primary mt-4 mb-4 verify-btn" onclick="forLoopBenchMark()">For Loop Benchmark</button>
+                         <p id="forLoopOutput" class="text-center p-1" ></p>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-5">
+                         <button class="btn btn-primary mt-4 mb-4 verify-btn" onclick="forEachBenchMark()">ForEach Benchmark</button>
+                         <p id="forEachOutput" class="text-center p-1"></p>
+                    </div>
                </div>
-
           </div>
-          <hr>
-          <div class="row">
-               <div class="col-md-5">
-                    <button class="btn btn-primary mt-4 mb-4 verify-btn" onclick="forLoopBenchMark()">For Loop Benchmark</button>
-                    <p id="forLoopOutput" class="text-center p-1" ></p>
-               </div>
-               <div class="col-md-2"></div>
-               <div class="col-md-5">
-                    <button class="btn btn-primary mt-4 mb-4 verify-btn" onclick="forEachBenchMark()">ForEach Benchmark</button>
-                    <p id="forEachOutput" class="text-center p-1"></p>
-               </div>
-          </div>
+         
      </div>
 </body>
 </html>

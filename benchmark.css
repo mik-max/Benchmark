@@ -10,3 +10,9 @@
 .head-cont{
      background-color: mediumturquoise;
 }
+.header-text{
+     color: lightskyblue;
+     font-family: 'Courier New', Courier, monospace;
+     font-weight: 600;
+     font-size: 30px;
+}
